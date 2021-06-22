@@ -1,7 +1,7 @@
-[![tylerjensen](https://circleci.com/gh/tylerjensen/ServiceWire.svg?style=shield)](https://circleci.com/gh/tylerjensen/ServiceWire)
-
 ServiceWire
 ===========
+
+*This fork adds support for .NET Framework 4.6.1*
 
 ### .NET Framework to .NET Core and Serializer Bug Fixes 5.3.4
 

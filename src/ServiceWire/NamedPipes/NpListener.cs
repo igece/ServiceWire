@@ -12,7 +12,7 @@ namespace ServiceWire.NamedPipes
         private bool running;
         private EventWaitHandle terminateHandle = new EventWaitHandle(false, EventResetMode.AutoReset);
         private int _maxConnections = 254;
-#if NET462
+#if NETFRAMEWORK
         private PipeSecurity _pipeSecurity = null;
 #endif
         private ILog _log = new NullLogger();
@@ -28,7 +28,7 @@ namespace ServiceWire.NamedPipes
             if (maxConnections > 254) maxConnections = 254;
             _maxConnections = maxConnections;
             this.PipeName = pipeName;
-#if NET462
+#if NETFRAMEWORK
             _pipeSecurity = new PipeSecurity();
             SecurityIdentifier everyone = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
             _pipeSecurity.AddAccessRule(new PipeAccessRule(everyone, PipeAccessRights.ReadWrite, AccessControlType.Allow));
@@ -108,7 +108,7 @@ namespace ServiceWire.NamedPipes
         {
             try
             {
-#if NET462
+#if NETFRAMEWORK
                 var pipeStream = new NamedPipeServerStream(PipeName, PipeDirection.InOut, _maxConnections, 
                     PipeTransmissionMode.Byte, PipeOptions.None, 512, 512, _pipeSecurity);
 #else

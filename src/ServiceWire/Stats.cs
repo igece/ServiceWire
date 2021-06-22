@@ -24,7 +24,7 @@ namespace ServiceWire
             int rollMaxMegaBytes = 1024,
             bool useUtcTimeStamp = false)
         {
-#if NET462
+#if NETFRAMEWORK
             _logDirectory = statsDirectory ?? Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "logs");
 #else
             _logDirectory = statsDirectory ?? Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "logs");

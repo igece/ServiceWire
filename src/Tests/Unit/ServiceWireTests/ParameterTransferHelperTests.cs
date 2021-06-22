@@ -38,7 +38,7 @@ namespace ServiceWireTests
             TestSingle(ut); // ushort),
             string str = "hello";
             TestSingle(str); // string),
-#if NET462
+#if NETFRAMEWORK
             Type ty = str.GetType();
             TestSingle(ty); // Type), P
 #endif
@@ -70,7 +70,7 @@ namespace ServiceWireTests
 
             string str = "hello";
             //.NET Core does not support binary serialization of Type
-#if NET462
+#if NETFRAMEWORK
             Type ty = str.GetType();
             Guid g = Guid.NewGuid();
             DateTime dt = DateTime.Now;
@@ -128,7 +128,7 @@ namespace ServiceWireTests
             TestArraySimpleType(strs);
 
             //.NET Core does not support binary serialization of Type
-#if NET462
+#if NETFRAMEWORK
             var tys = new Type[] { strs.GetType(), uts.GetType(), sts.GetType() };
             TestArraySimpleType(tys);
 #endif
